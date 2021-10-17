@@ -1,9 +1,12 @@
+#you can load the function with the command source(): where in the brackets you put the script where your function is
+ACi_convert_Fit <- function(file_name){
+
 #import libraries
 library(plantecophys);
 library(readr);
 
 #import raw Licor csv file, skip the first 11 rows so that the headers are in 1st row
-raw_licor_data <- read_csv("Desktop/AciTest2.csv", skip = 11, col_types = list(
+raw_licor_data <- read_csv(file_name, skip = 11, col_types = list(
   Photo = col_double(), #make sure column is numeric
   Tleaf = col_double(), #make sure column is numeric
   PARi = col_double(),  #make sure column is numeric
@@ -22,4 +25,4 @@ fit;
 
 #plot the ACi Curve
 plot(fit)
-
+}
